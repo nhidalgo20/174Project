@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cardealer.Model.Customer;
-import com.cardealer.Repository;
-import com.springframework.beans.factory.annotation.Autowired;
-import com.springframework.stereotype.Service;
+import com.cardealer.Repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 @Service
 public class CustomerServiceImpl implements CustomerService{

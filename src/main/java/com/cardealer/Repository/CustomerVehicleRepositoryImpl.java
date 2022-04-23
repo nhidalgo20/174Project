@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cardealer.Model.CustomerVehicle;
-import com.springframework.beans.factory.annotation.Autowired;
-import com.springframework.jdbc.core.JdbcTemplate;
-import com.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 
 @Repository
 public class CustomerVehicleRepositoryImpl implements CustomerVehicleRepository {
@@ -14,7 +14,7 @@ public class CustomerVehicleRepositoryImpl implements CustomerVehicleRepository 
 	// Just need to autowire JdbcTemplate, spring boot will
 	// do auto configure
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private  jdbcTemplate;
 
     
     @Override

@@ -4,9 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cardealer.Model.Customer;
-import com.springframework.beans.factory.annotation.Autowired;
-import com.springframework.jdbc.core.JdbcTemplate;
-import com.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public class CustomerRepositoryImpl implements CustomerRepository {
@@ -19,7 +18,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     
     @Override
     public int save(Customer customer) {
-        return jdbcTemplate.update(
+        return jdbcTemplate.insert(
                 "insert into customer (fName, lName,address,phoneNumber) values(?,?,?,?)",
                 customer.getfName(), customer.getlName(),customer.getAddress(),customer.getPhoneNumber());
     }

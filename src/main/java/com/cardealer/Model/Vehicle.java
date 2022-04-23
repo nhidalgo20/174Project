@@ -1,10 +1,12 @@
 package com.cardealer.Model;
 
+import java.util.Objects;
+
 enum vehicleTypes{
    Truck,MotorCycle,RV,Car;
 }
 enum motorcycleTypes{
-   Sports Bike,Crusier,Off Road,Touring;
+   SportsBike,Crusier,OffRoad,Touring;
 }
 
 public class Vehicle {
@@ -111,8 +113,9 @@ public class Vehicle {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vehicle vehicle = (Vehicle) o;
-        return VIN == vehicle.VIN && price.equals(vehicle.price) && make.equals(vehicle.make) && model.equals(vehicle.model) && body.equals(vehicle.body)
-        && color.equals(vehicle.color)&& vehicleType.equals(vehicle.vehicleType)&& towCapacity.equals(vehicle.towCapacity)&& motorcycleType.equals(vehicle.motorcycleType)&& waterCapacity.equals(vehicle.waterCapacity);
+        return VIN == vehicle.VIN && price == vehicle.price && make == vehicle.make && model == vehicle.model && body == vehicle.body
+                && color.equals(vehicle.color)&& vehicleType.equals(vehicle.vehicleType)
+                && towCapacity == vehicle.towCapacity && motorcycleType.equals(vehicle.motorcycleType)&& waterCapacity == vehicle.waterCapacity;
     }
 
     @Override

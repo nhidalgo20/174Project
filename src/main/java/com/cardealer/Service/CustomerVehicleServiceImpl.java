@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cardealer.Model.CustomerVehicle;
-import com.cardealer.Repository;
-import com.springframework.beans.factory.annotation.Autowired;
-import com.springframework.stereotype.Service;
+import com.cardealer.Repository.CustomerVehicleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 @Service
 public class CustomerVehicleServiceImpl implements CustomerVehicleService{
@@ -22,11 +23,11 @@ public class CustomerVehicleServiceImpl implements CustomerVehicleService{
 
 	@Override
 	public int updateCustomer(CustomerVehicle customerVehicle) {
-		return customerVehicleRepository.update(customerVehicle);
+		return customerVehicleRepository.updateCustomer(customerVehicle);
 	}
 		@Override
 	public int updateVehicle(CustomerVehicle customerVehicle) {
-		return customerVehicleRepository.update(customerVehicle);
+		return customerVehicleRepository.updateVehicle(customerVehicle);
 	}
 
 	@Override

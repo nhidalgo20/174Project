@@ -1,8 +1,10 @@
 package com.cardealer.Model;
 
+import java.util.Objects;
+
 public class CustomerVehicle {
 	private String VIN;
-    private int customerID;
+    private int customerId;
 
 
     public CustomerVehicle() {
@@ -35,7 +37,7 @@ public class CustomerVehicle {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CustomerVehicle customerVehicle = (CustomerVehicle) o;
-        return VIN == vehicle.VIN && customerId.equals(vehicle.customerId);
+        return VIN == customerVehicle.VIN && customerId == customerVehicle.customerId;
     }
 
     @Override

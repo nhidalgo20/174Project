@@ -1,4 +1,4 @@
-package com.cardealer;
+package com.cardealer.Model;
 
 import java.util.Objects;
 

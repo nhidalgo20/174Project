@@ -5,9 +5,9 @@ import java.util.Optional;
 
 import com.cardealer.Model.CustomerVehicle;
 
-public interface CustomerVehicleRepositoryImpl{
- 
-	int save(CustomerVehicle customerVehicle);
+public interface CustomerVehicleRepository{
+
+    int save(CustomerVehicle customerVehicle);
 
     int updateCustomer(CustomerVehicle customerVehicle);
 
@@ -16,7 +16,7 @@ public interface CustomerVehicleRepositoryImpl{
     int deleteById(int id,String VIN);
 
     List<CustomerVehicle> findAll();
-    
+
     Optional<CustomerVehicle> findByCustomerId(Long id);
 
     Optional<CustomerVehicle> findByVIN(Long id);
