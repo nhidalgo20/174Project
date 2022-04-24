@@ -1,5 +1,6 @@
 package com.cardealer.Controller;
 
+import com.cardealer.Exception.CustomerNotFoundException;
 import com.cardealer.Model.Customer;
 import com.cardealer.Repository.CustomerRepository;
 

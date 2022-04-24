@@ -1,5 +1,6 @@
 package com.cardealer.Controller;
 
+import com.cardealer.Exception.VehicleNotFoundException;
 import com.cardealer.Model.Vehicle;
 import com.cardealer.Repository.VehicleRepository;
 
@@ -39,7 +40,7 @@ public class VehicleController {
     Vehicle one(@PathVariable Long id) {
 
         return vehicleRepo.findById(id)
-                .orElseThrow(() -> new EmployeeNotFoundException(id));
+                .orElseThrow(() -> new VehicleNotFoundException(id));
     }
 
     @PutMapping("/vehicles/{id}")
