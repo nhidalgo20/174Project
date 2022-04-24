@@ -13,9 +13,4 @@ public class CarDealerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CarDealerApplication.class, args);
 	}
-
-	@GetMapping("/hello")
-	public String sayHello(@RequestParam(value = "myName", defaultValue = "World") String name) {
-		return String.format("Hello %s!", name);
-	}
 }
