@@ -14,8 +14,7 @@ public class VehicleServiceImpl implements VehicleService{
 
 	@Autowired
 	VehicleRepository vehicleRepository;
-	
-	
+
 	@Override
 	public int save(Vehicle vehicle) {
 		return vehicleRepository.save(vehicle);
@@ -27,7 +26,7 @@ public class VehicleServiceImpl implements VehicleService{
 	}
 
 	@Override
-	public int deleteById(int id) {
+	public int deleteById(String id) {
 		return vehicleRepository.deleteById(id);
 	}
 
@@ -37,7 +36,7 @@ public class VehicleServiceImpl implements VehicleService{
 	}
 
 	@Override
-	public Optional<Vehicle> findById(Long id) {
+	public Optional<Vehicle> findById(String id) {
 		return vehicleRepository.findById(id);
 	}
 

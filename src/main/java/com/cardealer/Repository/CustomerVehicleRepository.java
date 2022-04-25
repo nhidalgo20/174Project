@@ -13,7 +13,7 @@ public interface CustomerVehicleRepository{
 
     int updateVehicle(CustomerVehicle customerVehicle);
 
-    int deleteById(int id,String VIN);
+    int deleteById(long id,String VIN);
 
     List<CustomerVehicle> findAll();
 

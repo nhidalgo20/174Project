@@ -2,13 +2,6 @@ package com.cardealer.Model;
 
 import java.util.Objects;
 
-enum vehicleTypes{
-   Truck,MotorCycle,RV,Car;
-}
-enum motorcycleTypes{
-   SportsBike,Crusier,OffRoad,Touring;
-}
-
 public class Vehicle {
 	private String VIN;
     private double price;
@@ -21,11 +14,7 @@ public class Vehicle {
     private motorcycleTypes motorcycleType;
     private int waterCapacity;
 
-
-    public Vehicle() {
-    }
-
-    public Vehicle(String VIN, double price, String make, String model, String body,String color,vehicleTypes vehicleType,int towCapacity,motorcycleTypes motorcycleType,int waterCapacity) {
+    public Vehicle(String VIN, double price, String make, String model, String body, String color, vehicleTypes vehicleType, int towCapacity, motorcycleTypes motorcycleType, int waterCapacity) {
         this.VIN = VIN;
         this.price = price;
         this.make = make;
@@ -60,7 +49,7 @@ public class Vehicle {
     public String getColor() {
         return color;
     }
-    public vehicleTypes getvehicleType() {
+    public vehicleTypes getVehicleType() {
         return vehicleType;
     }
     public int getTowCapacity() {

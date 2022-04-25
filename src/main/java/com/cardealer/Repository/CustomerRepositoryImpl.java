@@ -1,11 +1,12 @@
 package com.cardealer.Repository;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.cardealer.Model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class CustomerRepositoryImpl implements CustomerRepository {
@@ -18,7 +19,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     
     @Override
     public int save(Customer customer) {
-        return jdbcTemplate.insert(
+        return jdbcTemplate.update(
                 "insert into customer (fName, lName,address,phoneNumber) values(?,?,?,?)",
                 customer.getfName(), customer.getlName(),customer.getAddress(),customer.getPhoneNumber());
     }
@@ -30,14 +31,12 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                 customer.getfName(), customer.getlName(),customer.getAddress(),customer.getPhoneNumber(), customer.getCustomerId());
     }
 
-
     @Override
-    public int deleteById(int id) {
+    public int deleteById(long id) {
         return jdbcTemplate.update(
                 "delete customer where customerId = ?",
                 id);
     }
-
     @Override
     public List<Customer> findAll() {
         return jdbcTemplate.query(

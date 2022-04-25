@@ -37,14 +37,14 @@ public class VehicleController {
     // Single item
 
     @GetMapping("/vehicles/{id}")
-    Vehicle one(@PathVariable Long id) {
+    Vehicle one(@PathVariable String id) {
 
         return vehicleRepo.findById(id)
                 .orElseThrow(() -> new VehicleNotFoundException(id));
     }
 
     @PutMapping("/vehicles/{id}")
-    Vehicle replaceVehicle(@RequestBody Vehicle newVehicle, @PathVariable Long id) {
+    Integer replaceVehicle(@RequestBody Vehicle newVehicle, @PathVariable String id) {
 
         return vehicleRepo.findById(id)
                 .map(vehicle -> {
@@ -54,7 +54,7 @@ public class VehicleController {
                     vehicle.setModel(newVehicle.getModel());
                     vehicle.setBody(newVehicle.getBody());
                     vehicle.setColor(newVehicle.getColor());
-                    vehicle.setVehicleType(newVehicle.getvehicleType());
+                    vehicle.setVehicleType(newVehicle.getVehicleType());
                     vehicle.setTowCapacity(newVehicle.getTowCapacity());
                     vehicle.setMotorcycleType(newVehicle.getMotorcycleType());
                     vehicle.setWaterCapacity(newVehicle.getWaterCapacity());
@@ -67,7 +67,7 @@ public class VehicleController {
     }
 
     @DeleteMapping("/vehicles/{id}")
-    void deleteEmployee(@PathVariable Long id) {
+    void deleteEmployee(@PathVariable String id) {
         vehicleRepo.deleteById(id);
     }
 }

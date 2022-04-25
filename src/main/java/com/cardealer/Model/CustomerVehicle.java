@@ -7,7 +7,7 @@ public class CustomerVehicle {
     private int customerId;
 
 
-    public CustomerVehicle() {
+    public CustomerVehicle(String customerId, String vin) {
     }
 
     public CustomerVehicle(String VIN, int customerId) {

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.cardealer.Model.CustomerVehicle;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 
@@ -14,7 +15,7 @@ public class CustomerVehicleRepositoryImpl implements CustomerVehicleRepository 
 	// Just need to autowire JdbcTemplate, spring boot will
 	// do auto configure
     @Autowired
-    private  jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     
     @Override
@@ -39,10 +40,10 @@ public class CustomerVehicleRepositoryImpl implements CustomerVehicleRepository 
 
 
     @Override
-    public int deleteById(int customerId, String VIN) {
+    public int deleteById(long customerId, String VIN) {
         return jdbcTemplate.update(
                 "delete CUSTOMERSELLINGORBUYINGVEHICLE where customerId = ? and VIN = ?",
-                id,VIN);
+                customerId,VIN);
     }
 
     @Override
@@ -51,7 +52,7 @@ public class CustomerVehicleRepositoryImpl implements CustomerVehicleRepository 
                 "select * from CUSTOMERSELLINGORBUYINGVEHICLE",
                 (rs, rowNum) ->
                         new CustomerVehicle(
-                                rs.getInt("customerId"),
+                                rs.getString("customerId"),
                                 rs.getString("VIN")
                         )
         );
@@ -64,7 +65,7 @@ public class CustomerVehicleRepositoryImpl implements CustomerVehicleRepository 
                 new Object[]{id},
                 (rs, rowNum) ->
                         Optional.of(new CustomerVehicle(
-                                rs.getInt("customerId"),
+                                rs.getString("customerId"),
                                 rs.getString("VIN")
                         ))
         );
@@ -76,7 +77,7 @@ public class CustomerVehicleRepositoryImpl implements CustomerVehicleRepository 
                 new Object[]{id},
                 (rs, rowNum) ->
                         Optional.of(new CustomerVehicle(
-                                rs.getInt("customerId"),
+                                rs.getString("customerId"),
                                 rs.getString("VIN")
                         ))
         );

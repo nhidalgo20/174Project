@@ -41,7 +41,7 @@ public class CustomerController {
     }
 
     @PutMapping("/customer/{id}")
-    Customer replaceCustomer(@RequestBody Customer newCustomer, @PathVariable Long id) {
+    Integer replaceCustomer(@RequestBody Customer newCustomer, @PathVariable Long id) {
 
         return custRepo.findById(id)
                 .map(customer -> {
@@ -52,7 +52,7 @@ public class CustomerController {
                     return custRepo.save(customer);
                 })
                 .orElseGet(() -> {
-                    newCustomer.setCustomerId(id);
+                    newCustomer.setCustomerId((id));
                     return custRepo.save(newCustomer);
                 });
     }

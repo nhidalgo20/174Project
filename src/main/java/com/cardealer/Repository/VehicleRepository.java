@@ -11,10 +11,10 @@ public interface VehicleRepository{
 
     int update(Vehicle vehicle);
 
-    int deleteById(int id);
+    int deleteById(String id);
 
     List<Vehicle> findAll();
     
-    Optional<Vehicle> findById(Long id);
+    Optional<Vehicle> findById(String id);
 
 }

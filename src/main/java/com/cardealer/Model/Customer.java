@@ -3,7 +3,7 @@ package com.cardealer.Model;
 import java.util.Objects;
 
 public class Customer {
-    private int customerId;
+    private long customerId;
     private String fName;
     private String lName;
     private String address;
@@ -21,7 +21,7 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getCustomerId() {
+    public long getCustomerId() {
         return customerId;
     }
 
@@ -41,7 +41,7 @@ public class Customer {
         return phoneNumber;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(long customerId) {
         this.customerId = customerId;
     }
 
