@@ -41,11 +41,11 @@ public class CustomerVehicleServiceImpl implements CustomerVehicleService{
 	}
 
 	@Override
-	public Optional<CustomerVehicle> findByCustomerId(Long id) {
+	public CustomerVehicle findByCustomerId(Long id) {
 		return customerVehicleRepository.findByCustomerId(id);
 	}
 		@Override
-	public Optional<CustomerVehicle> findByVIN(Long id) {
+	public CustomerVehicle findByVIN(Long id) {
 		return customerVehicleRepository.findByVIN(id);
 	}
 

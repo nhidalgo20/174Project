@@ -1,7 +1,6 @@
 package com.cardealer.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.cardealer.Model.Vehicle;
 
@@ -15,6 +14,6 @@ public interface VehicleRepository{
 
     List<Vehicle> findAll();
     
-    Optional<Vehicle> findById(String id);
+    Vehicle findById(String id);
 
 }

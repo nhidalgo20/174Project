@@ -36,7 +36,7 @@ public class VehicleServiceImpl implements VehicleService{
 	}
 
 	@Override
-	public Optional<Vehicle> findById(String id) {
+	public Vehicle findById(String id) {
 		return vehicleRepository.findById(id);
 	}
 

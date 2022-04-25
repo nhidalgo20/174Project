@@ -1,12 +1,12 @@
 package com.cardealer.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.cardealer.Model.Vehicle;
 import com.cardealer.Model.motorcycleTypes;
 import com.cardealer.Model.vehicleTypes;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -63,23 +63,9 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     }
 
     @Override
-    public Optional<Vehicle> findById(String id) {
+    public Vehicle findById(String id) {
         return jdbcTemplate.queryForObject(
                 "select * from vehicle where VIN = ?",
-                new Object[]{id},
-                (rs, rowNum) ->
-                        Optional.of(new Vehicle(
-                                rs.getString("VIN"),
-                                rs.getDouble("price"),
-                                rs.getString("make"),
-                                rs.getString("model"),
-                                rs.getString("body"),
-                                rs.getString("color"),
-                                vehicleTypes.valueOf(rs.getString("vehicleType")),
-                                rs.getInt("towCapacity"),
-                                motorcycleTypes.valueOf(rs.getString("motorcycleType")),
-                                rs.getInt("waterCapacity")
-                        ))
-        );
+                new BeanPropertyRowMapper<Vehicle>(Vehicle.class),id);
     }
 }

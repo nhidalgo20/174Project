@@ -1,6 +1,7 @@
 package com.cardealer.Model;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class Customer {
     private long customerId;
@@ -73,4 +74,5 @@ public class Customer {
     public int hashCode() {
         return Objects.hash(customerId, fName, lName, address, phoneNumber);
     }
+
 }

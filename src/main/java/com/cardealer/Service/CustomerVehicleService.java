@@ -16,10 +16,10 @@ public interface CustomerVehicleService {
     int deleteById(int id,String vin);
 
     List<CustomerVehicle> findAll();
-    
-    Optional<CustomerVehicle> findByCustomerId(Long id);
 
-    Optional<CustomerVehicle> findByVIN(Long id);
+    CustomerVehicle findByCustomerId(Long id);
+
+    CustomerVehicle findByVIN(Long id);
 
 }
 

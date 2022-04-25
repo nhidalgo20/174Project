@@ -3,10 +3,10 @@ package com.cardealer.Repository;
 import com.cardealer.Model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class CustomerRepositoryImpl implements CustomerRepository {
@@ -53,18 +53,10 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
-    public Optional<Customer> findById(Long id) {
+    public Customer findById(Long id) {
         return jdbcTemplate.queryForObject(
                 "select * from customer where customerId = ?",
-                new Object[]{id},
-                (rs, rowNum) ->
-                        Optional.of(new Customer(
-                                rs.getInt("id"),
-                                rs.getString("firstName"),
-                                rs.getString("lastName"),
-                                rs.getString("address"),
-                                rs.getString("phoneNumber")
-                        ))
-        );
+                new BeanPropertyRowMapper<Customer>(Customer.class),id);
+
     }
 }

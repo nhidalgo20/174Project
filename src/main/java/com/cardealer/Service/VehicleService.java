@@ -6,15 +6,9 @@ import java.util.Optional;
 import com.cardealer.Model.Vehicle;
 
 public interface VehicleService {
-
 	int save(Vehicle vehicle);
-
     int update(Vehicle vehicle);
-
     int deleteById(String id);
-
     List<Vehicle> findAll();
-    
-    Optional<Vehicle> findById(String id);
-
+    Vehicle findById(String id);
 }

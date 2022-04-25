@@ -1,7 +1,6 @@
 package com.cardealer.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.cardealer.Model.CustomerVehicle;
 
@@ -17,8 +16,8 @@ public interface CustomerVehicleRepository{
 
     List<CustomerVehicle> findAll();
 
-    Optional<CustomerVehicle> findByCustomerId(Long id);
+    CustomerVehicle findByCustomerId(Long id);
 
-    Optional<CustomerVehicle> findByVIN(Long id);
+    CustomerVehicle findByVIN(Long id);
 
 }

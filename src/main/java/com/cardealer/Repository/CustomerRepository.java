@@ -1,7 +1,6 @@
 package com.cardealer.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.cardealer.Model.Customer;
 
@@ -15,6 +14,6 @@ public interface CustomerRepository{
 
     List<Customer> findAll();
     
-    Optional<Customer> findById(Long id);
+    Customer findById(Long id);
 
 }

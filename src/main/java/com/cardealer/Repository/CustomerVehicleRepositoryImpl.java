@@ -1,10 +1,10 @@
 package com.cardealer.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.cardealer.Model.CustomerVehicle;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -59,27 +59,15 @@ public class CustomerVehicleRepositoryImpl implements CustomerVehicleRepository 
     }
 
     @Override
-    public Optional<CustomerVehicle> findByCustomerId(Long id) {
+    public CustomerVehicle findByCustomerId(Long id) {
         return jdbcTemplate.queryForObject(
                 "select * from CUSTOMERSELLINGORBUYINGVEHICLE where customerId = ?",
-                new Object[]{id},
-                (rs, rowNum) ->
-                        Optional.of(new CustomerVehicle(
-                                rs.getString("customerId"),
-                                rs.getString("VIN")
-                        ))
-        );
+                new BeanPropertyRowMapper<>(CustomerVehicle.class),id);
     }
         @Override
-    public Optional<CustomerVehicle> findByVIN(Long id) {
+    public CustomerVehicle findByVIN(Long id) {
         return jdbcTemplate.queryForObject(
                 "select * from CUSTOMERSELLINGORBUYINGVEHICLE where VIN = ?",
-                new Object[]{id},
-                (rs, rowNum) ->
-                        Optional.of(new CustomerVehicle(
-                                rs.getString("customerId"),
-                                rs.getString("VIN")
-                        ))
-        );
+                new BeanPropertyRowMapper<CustomerVehicle>(CustomerVehicle.class),id);
     }
 }
