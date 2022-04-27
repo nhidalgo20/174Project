@@ -53,7 +53,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
-    public Customer findById(Long id) {
+    public Customer findById(int id) {
         return jdbcTemplate.queryForObject(
                 "select * from customer where customerId = ?",
                 new BeanPropertyRowMapper<Customer>(Customer.class),id);

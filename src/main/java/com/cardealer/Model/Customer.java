@@ -1,13 +1,27 @@
 package com.cardealer.Model;
 
+import javax.persistence.*;
 import java.util.Objects;
-import java.util.Optional;
 
+@Entity
+@Table(name = "Customer")
 public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "customerId")
     private long customerId;
+
+    @Column(name = "fName")
     private String fName;
+
+    @Column(name = "lName")
     private String lName;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "phoneNumber")
     private String phoneNumber;
 
 

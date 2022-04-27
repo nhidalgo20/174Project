@@ -3,8 +3,9 @@ package com.cardealer.Repository;
 import java.util.List;
 
 import com.cardealer.Model.Vehicle;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface VehicleRepository{
+public interface VehicleRepository {
  
 	int save(Vehicle vehicle);
 

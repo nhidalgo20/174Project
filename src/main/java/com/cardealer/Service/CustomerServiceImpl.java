@@ -1,19 +1,17 @@
 package com.cardealer.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.cardealer.Model.Customer;
-import com.cardealer.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements com.cardealer.Service.CustomerService {
 
 	@Autowired
-	CustomerRepository customerRepository;
+	CustomerService customerRepository;
 	
 	
 	@Override
@@ -37,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Customer findById(Long id) {
+	public Customer findById(int id) {
 		return customerRepository.findById(id);
 	}
 

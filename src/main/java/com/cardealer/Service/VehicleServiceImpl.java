@@ -1,19 +1,17 @@
 package com.cardealer.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.cardealer.Model.Vehicle;
-import com.cardealer.Repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class VehicleServiceImpl implements VehicleService{
+public class VehicleServiceImpl implements com.cardealer.Service.VehicleService {
 
 	@Autowired
-	VehicleRepository vehicleRepository;
+    VehicleService vehicleRepository;
 
 	@Override
 	public int save(Vehicle vehicle) {

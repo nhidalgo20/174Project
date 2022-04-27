@@ -1,9 +1,17 @@
 package com.cardealer.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table(name = "CustomerVehicle")
 public class CustomerVehicle {
+
+    @Id
 	private String VIN;
+    @Id
     private int customerId;
 
 
