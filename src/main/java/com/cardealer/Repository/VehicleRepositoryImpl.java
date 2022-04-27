@@ -2,6 +2,7 @@ package com.cardealer.Repository;
 
 import java.util.List;
 
+import com.cardealer.Model.Customer;
 import com.cardealer.Model.Vehicle;
 import com.cardealer.Model.motorcycleTypes;
 import com.cardealer.Model.vehicleTypes;
@@ -54,9 +55,9 @@ public class VehicleRepositoryImpl implements VehicleRepository {
                                 rs.getString("model"),
                                 rs.getString("body"),
                                 rs.getString("color"),
-                                vehicleTypes.valueOf(rs.getString("vehicleType")),
+                                (rs.getString("vehicleType")),
                                 rs.getInt("towCapacity"),
-                                motorcycleTypes.valueOf(rs.getString("motorcycleType")),
+                                (rs.getString("motorcycleType")),
                                 rs.getInt("waterCapacity")
                         )
         );

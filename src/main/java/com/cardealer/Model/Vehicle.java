@@ -1,6 +1,5 @@
 package com.cardealer.Model;
 
-import javax.persistence.*;
 import java.util.Objects;
 
 public class Vehicle {
@@ -11,12 +10,12 @@ public class Vehicle {
     private String model;
     private String body;
     private String color;
-    private vehicleTypes vehicleType;
-    private int towCapacity;
-    private motorcycleTypes motorcycleType;
+    private String vehicleType;
+    private Integer towCapacity;
+    private String motorcycleType;
     private int waterCapacity;
 
-    public Vehicle(String VIN, double price, String make, String model, String body, String color, vehicleTypes vehicleType, int towCapacity, motorcycleTypes motorcycleType, int waterCapacity) {
+    public Vehicle(String VIN, double price, String make, String model, String body, String color, String vehicleType, Integer towCapacity, String motorcycleType, Integer waterCapacity) {
         this.VIN = VIN;
         this.price = price;
         this.make = make;
@@ -28,6 +27,30 @@ public class Vehicle {
         this.motorcycleType = motorcycleType;
         this.waterCapacity = waterCapacity;
     }
+
+    public Vehicle(String VIN, double price, String make, String model, String body, String color, String vehicleType,String motorcycleType) {
+        this.VIN = VIN;
+        this.price = price;
+        this.make = make;
+        this.model = model;
+        this.body = body;
+        this.color = color;
+        this.vehicleType = vehicleType;
+        this.towCapacity = towCapacity;
+        this.motorcycleType = motorcycleType;
+        this.waterCapacity = waterCapacity;
+    }
+
+    public Vehicle(String VIN, double price, String make, String model, String body, String color, String vehicleType) {
+        this.VIN = VIN;
+        this.price = price;
+        this.make = make;
+        this.model = model;
+        this.body = body;
+        this.color = color;
+        this.vehicleType = vehicleType;
+    }
+
 
     public String getVehicleVIN() {
         return VIN;
@@ -51,13 +74,13 @@ public class Vehicle {
     public String getColor() {
         return color;
     }
-    public vehicleTypes getVehicleType() {
+    public String getVehicleType() {
         return vehicleType;
     }
     public int getTowCapacity() {
         return towCapacity;
     }
-    public motorcycleTypes getMotorcycleType() {
+    public String getMotorcycleType() {
         return motorcycleType;
     }
     public int getWaterCapacity() {
@@ -87,13 +110,13 @@ public class Vehicle {
         this.color = color;
     }
      public void setVehicleType(vehicleTypes vehicleType) {
-        this.vehicleType = vehicleType;
+        this.vehicleType = vehicleType.toString();
     }
      public void setTowCapacity(int towCapacity) {
         this.towCapacity = towCapacity;
     }
      public void setMotorcycleType(motorcycleTypes motorcycleType) {
-        this.motorcycleType = motorcycleType;
+        this.motorcycleType = motorcycleType.toString();
     }
      public void setWaterCapacity(int waterCapacity) {
         this.waterCapacity = waterCapacity;
@@ -112,6 +135,27 @@ public class Vehicle {
     @Override
     public int hashCode() {
         return Objects.hash(VIN,price,make,model,body,color,vehicleType,towCapacity,motorcycleType,waterCapacity);
+    }
+
+    @Override
+    public String toString()
+    {
+        if(this.vehicleType == vehicleTypes.Truck.toString()){
+            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model
+                    + this.color + " "+ this.towCapacity + " "+ this.price;
+        }
+        else if(this.vehicleType == vehicleTypes.MotorCycle.toString()){
+            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model
+                    + this.color + " "+ this.motorcycleType + " "+ this.price;
+        }
+        else if(this.vehicleType == vehicleTypes.RV.toString()){
+            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model
+                    + this.color + " "+ this.waterCapacity + " "+ this.price;
+        }
+        else{
+            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model
+                    + this.color + " "+ this.price;
+        }
     }
 }
 

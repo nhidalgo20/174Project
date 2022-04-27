@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Customer {
 
-    private long customerId;
+    private int customerId;
     private String fName;
     private String lName;
     private String address;
@@ -15,6 +15,7 @@ public class Customer {
     }
 
     public Customer(int customerId, String fName, String lName, String address, String phoneNumber) {
+        super();
         this.customerId = customerId;
         this.fName = fName;
         this.lName = lName;
@@ -42,7 +43,7 @@ public class Customer {
         return phoneNumber;
     }
 
-    public void setCustomerId(long customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 
@@ -73,6 +74,12 @@ public class Customer {
     @Override
     public int hashCode() {
         return Objects.hash(customerId, fName, lName, address, phoneNumber);
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.customerId + " " + this.fName + " " + this.lName + " " + this.address + " " + this.phoneNumber;
     }
 
 }

@@ -1,10 +1,8 @@
 package com.cardealer.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.cardealer.Model.Customer;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepository {
  
@@ -12,7 +10,7 @@ public interface CustomerRepository {
 
     int update(Customer customer);
 
-    int deleteById(long id);
+    int deleteById(int id);
 
     List<Customer> findAll();
     
