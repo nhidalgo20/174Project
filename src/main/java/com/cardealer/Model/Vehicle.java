@@ -3,39 +3,17 @@ package com.cardealer.Model;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-@Table(name = "Vehicle")
 public class Vehicle {
 
-    @Id
-    @Column(name = "VIN")
 	private String VIN;
-
-    @Column(name = "price")
     private double price;
-
-    @Column(name = "make")
     private String make;
-
-    @Column(name = "model")
     private String model;
-
-    @Column(name = "body")
     private String body;
-
-    @Column(name = "color")
     private String color;
-
-    @Column(name = "vehicleType")
     private vehicleTypes vehicleType;
-
-    @Column(name = "towCapacity")
     private int towCapacity;
-
-    @Column(name = "motorcycleType")
     private motorcycleTypes motorcycleType;
-
-    @Column(name = "waterCapacity")
     private int waterCapacity;
 
     public Vehicle(String VIN, double price, String make, String model, String body, String color, vehicleTypes vehicleType, int towCapacity, motorcycleTypes motorcycleType, int waterCapacity) {
