@@ -1,5 +1,8 @@
 package com.cardealer.Model;
 
+
 public enum motorcycleTypes {
-    SportsBike, Crusier, OffRoad, Touring;
+    Sports_Bike, Crusier, Off_Road, Touring;
+
 }
+

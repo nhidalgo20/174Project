@@ -34,7 +34,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     @Override
     public int deleteById(int id) {
         return jdbcTemplate.update(
-                "delete customer where customerId = ?",
+                "delete from customer where customerId = ?",
                 id);
     }
     @Override

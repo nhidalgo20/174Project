@@ -34,6 +34,19 @@ public class VehicleServiceImpl implements com.cardealer.Service.VehicleService 
 		return vehicleRepository.findAll();
 	}
 
+	public List<Vehicle> findAllTrucks() {
+		return vehicleRepository.findAllTrucks();
+	}
+	public List<Vehicle> findAllMotorcycles() {
+		return vehicleRepository.findAllMotorcycles();
+	}
+	public List<Vehicle> findAllRVs() {
+		return vehicleRepository.findAllRVs();
+	}
+	public List<Vehicle> findAllCars() {
+		return vehicleRepository.findAllCars();
+	}
+
 	@Override
 	public Vehicle findById(String id) {
 		return vehicleRepository.findById(id);

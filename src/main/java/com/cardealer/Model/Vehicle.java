@@ -1,5 +1,7 @@
 package com.cardealer.Model;
 
+import org.springframework.lang.Nullable;
+
 import java.util.Objects;
 
 public class Vehicle {
@@ -11,11 +13,16 @@ public class Vehicle {
     private String body;
     private String color;
     private String vehicleType;
-    private Integer towCapacity;
+    @Nullable
+    private String towCapacity;
+    @Nullable
     private String motorcycleType;
-    private int waterCapacity;
+    @Nullable
+    private String waterCapacity;
 
-    public Vehicle(String VIN, double price, String make, String model, String body, String color, String vehicleType, Integer towCapacity, String motorcycleType, Integer waterCapacity) {
+    public Vehicle(String vin, double price, String make, String model, String body, String color, String motorcycleType) {
+    }
+    public Vehicle(String VIN, double price, String make, String model, String body, String color, String vehicleType, String towCapacity, String motorcycleType, String waterCapacity) {
         this.VIN = VIN;
         this.price = price;
         this.make = make;
@@ -28,29 +35,8 @@ public class Vehicle {
         this.waterCapacity = waterCapacity;
     }
 
-    public Vehicle(String VIN, double price, String make, String model, String body, String color, String vehicleType,String motorcycleType) {
-        this.VIN = VIN;
-        this.price = price;
-        this.make = make;
-        this.model = model;
-        this.body = body;
-        this.color = color;
-        this.vehicleType = vehicleType;
-        this.towCapacity = towCapacity;
-        this.motorcycleType = motorcycleType;
-        this.waterCapacity = waterCapacity;
+    public Vehicle(String vin, double price, String make, String model, String body, String color) {
     }
-
-    public Vehicle(String VIN, double price, String make, String model, String body, String color, String vehicleType) {
-        this.VIN = VIN;
-        this.price = price;
-        this.make = make;
-        this.model = model;
-        this.body = body;
-        this.color = color;
-        this.vehicleType = vehicleType;
-    }
-
 
     public String getVehicleVIN() {
         return VIN;
@@ -77,13 +63,13 @@ public class Vehicle {
     public String getVehicleType() {
         return vehicleType;
     }
-    public int getTowCapacity() {
+    public String getTowCapacity() {
         return towCapacity;
     }
     public String getMotorcycleType() {
         return motorcycleType;
     }
-    public int getWaterCapacity() {
+    public String getWaterCapacity() {
         return waterCapacity;
     }
 
@@ -112,13 +98,18 @@ public class Vehicle {
      public void setVehicleType(vehicleTypes vehicleType) {
         this.vehicleType = vehicleType.toString();
     }
-     public void setTowCapacity(int towCapacity) {
+     public void setTowCapacity(String towCapacity) {
         this.towCapacity = towCapacity;
     }
      public void setMotorcycleType(motorcycleTypes motorcycleType) {
-        this.motorcycleType = motorcycleType.toString();
+        if(motorcycleType == null){
+            this.motorcycleType = null;
+        }
+        else {
+            this.motorcycleType = motorcycleType.toString();
+        }
     }
-     public void setWaterCapacity(int waterCapacity) {
+     public void setWaterCapacity(String waterCapacity) {
         this.waterCapacity = waterCapacity;
     }
 
@@ -141,19 +132,19 @@ public class Vehicle {
     public String toString()
     {
         if(this.vehicleType == vehicleTypes.Truck.toString()){
-            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model
+            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model+" "
                     + this.color + " "+ this.towCapacity + " "+ this.price;
         }
         else if(this.vehicleType == vehicleTypes.MotorCycle.toString()){
-            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model
+            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model+" "
                     + this.color + " "+ this.motorcycleType + " "+ this.price;
         }
         else if(this.vehicleType == vehicleTypes.RV.toString()){
-            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model
+            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model+" "
                     + this.color + " "+ this.waterCapacity + " "+ this.price;
         }
         else{
-            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model
+            return this.VIN + " " + this.vehicleType + " " + this.body + " " + this.make + " "+ this.model +" "
                     + this.color + " "+ this.price;
         }
     }
