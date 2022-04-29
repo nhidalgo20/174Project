@@ -14,6 +14,10 @@ public interface VehicleRepository {
     int deleteById(String id);
 
     List<Vehicle> findAll();
+    List<Vehicle> findAllTrucks();
+    List<Vehicle> findAllMotorcycles();
+    List<Vehicle> findAllRVs();
+    List<Vehicle> findAllCars();
     
     Vehicle findById(String id);
 

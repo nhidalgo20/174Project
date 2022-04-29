@@ -3,13 +3,14 @@ package com.cardealer.Controller;
 import com.cardealer.Model.Vehicle;
 
 import com.cardealer.Service.VehicleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class VehicleController {
-
+    @Autowired
     private final VehicleService vehicleService;
 
     public VehicleController(VehicleService vehicleService) {

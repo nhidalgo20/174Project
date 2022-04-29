@@ -3,15 +3,16 @@ package com.cardealer.Service;
 import java.util.List;
 
 import com.cardealer.Model.Customer;
+import com.cardealer.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class CustomerServiceImpl implements com.cardealer.Service.CustomerService {
+public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
-	CustomerService customerRepository;
+	CustomerRepository customerRepository;
 	
 	
 	@Override

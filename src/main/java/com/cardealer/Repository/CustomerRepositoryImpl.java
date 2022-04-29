@@ -2,8 +2,8 @@ package com.cardealer.Repository;
 
 import com.cardealer.Model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -32,9 +32,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
-    public int deleteById(long id) {
+    public int deleteById(int id) {
         return jdbcTemplate.update(
-                "delete customer where customerId = ?",
+                "delete from customer where customerId = ?",
                 id);
     }
     @Override
@@ -44,8 +44,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                 (rs, rowNum) ->
                         new Customer(
                                 rs.getInt("customerId"),
-                                rs.getString("firstName"),
-                                rs.getString("lastName"),
+                                rs.getString("fname"),
+                                rs.getString("lname"),
                                 rs.getString("address"),
                                 rs.getString("phoneNumber")
                         )
@@ -54,9 +54,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public Customer findById(int id) {
-        return jdbcTemplate.queryForObject(
-                "select * from customer where customerId = ?",
-                new BeanPropertyRowMapper<Customer>(Customer.class),id);
+        return jdbcTemplate.queryForObject("select * from CUSTOMER where customerId = ?",
+                new BeanPropertyRowMapper<Customer>(Customer.class), id);
 
     }
 }

@@ -3,6 +3,7 @@ package com.cardealer.Service;
 import java.util.List;
 
 import com.cardealer.Model.Vehicle;
+import com.cardealer.Repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class VehicleServiceImpl implements com.cardealer.Service.VehicleService {
 
 	@Autowired
-    VehicleService vehicleRepository;
+	VehicleRepository vehicleRepository;
 
 	@Override
 	public int save(Vehicle vehicle) {
@@ -31,6 +32,19 @@ public class VehicleServiceImpl implements com.cardealer.Service.VehicleService 
 	@Override
 	public List<Vehicle> findAll() {
 		return vehicleRepository.findAll();
+	}
+
+	public List<Vehicle> findAllTrucks() {
+		return vehicleRepository.findAllTrucks();
+	}
+	public List<Vehicle> findAllMotorcycles() {
+		return vehicleRepository.findAllMotorcycles();
+	}
+	public List<Vehicle> findAllRVs() {
+		return vehicleRepository.findAllRVs();
+	}
+	public List<Vehicle> findAllCars() {
+		return vehicleRepository.findAllCars();
 	}
 
 	@Override
