@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { Button,ButtonGroup } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -63,7 +64,11 @@ export default function SearchAppBar() {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <ButtonGroup disableElevation variant="contained">
+            <Button href='/ starr'>Home</Button>
+            <Button href='/BuyPage'>Buy</Button>
+            <Button href='/SellPage'>Sell</Button>
+            </ButtonGroup>
           </IconButton>
           <Typography
             variant="h6"
@@ -71,7 +76,9 @@ export default function SearchAppBar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            <h2>
+            <a href="https://youtu.be/xUsOJrw5PJE?t=10" target="_blank" rel="noreferrer">Prestige Worldwide</a>
+            </h2>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -85,5 +92,8 @@ export default function SearchAppBar() {
         </Toolbar>
       </AppBar>
     </Box>
+    
   );
 }
+
+
