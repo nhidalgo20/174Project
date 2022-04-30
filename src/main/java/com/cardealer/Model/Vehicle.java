@@ -20,8 +20,9 @@ public class Vehicle {
     @Nullable
     private String waterCapacity;
 
-    public Vehicle(String vin, double price, String make, String model, String body, String color, String motorcycleType) {
+    public Vehicle(){
     }
+
     public Vehicle(String VIN, double price, String make, String model, String body, String color, String vehicleType, String towCapacity, String motorcycleType, String waterCapacity) {
         this.VIN = VIN;
         this.price = price;
