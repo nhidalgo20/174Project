@@ -29,6 +29,17 @@ export default function BuyPage() {
     const handleChange = (event) => {
         setCurrency(event.target.value);
       };
+
+      const handleClick=(e)=>{
+          e.preventDefault()
+        await fetch("localhost:8080/vehicles",{
+            method:"DELETE"
+          }).then(()=>{
+              console.log("Vehicle Deleted")
+          })
+        return await Response.json();
+      }
+
   return (
       <p>
         <div>&nbsp;</div>
