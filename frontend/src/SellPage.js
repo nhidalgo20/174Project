@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
-import { Container, Paper, Button } from '@mui/material';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import { Container, Paper, Button, Select, MenuItem } from '@mui/material';
 
 export default function InputAdornments() {
   const [values, setValues] = React.useState({
@@ -52,10 +53,25 @@ export default function InputAdornments() {
        // onChange={(e)=>setAddress(e.target.value)}
         />
         &nbsp;
-        <TextField id="outlined-basic" label="Vehicle Type " variant="outlined" fullWidth
-        //value={vehicleType}
-        //onChange={(e)=>setAddress(e.target.value)}
-        />
+        <FormControl sx={{ m: 1, minWidth: 800 }}>
+        <InputLabel id="demo-simple-select-autowidth-label">Vehicle Type</InputLabel>
+        <Select
+          // labelId="demo-simple-select-autowidth-label"
+          // id="demo-simple-select-autowidth"
+          // value={age}
+          // onChange={handleChange}
+          // autoWidth
+          // label="Age"
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Car</MenuItem>
+          <MenuItem value={21}>Truck</MenuItem>
+          <MenuItem value={22}>Motor Cycles</MenuItem>
+          <MenuItem value={22}>RV</MenuItem>
+        </Select>
+      </FormControl>
         &nbsp;
         <TextField id="outlined-basic" label="Tow Capacity " variant="outlined" fullWidth
        // value={towCapacity}
