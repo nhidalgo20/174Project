@@ -14,5 +14,7 @@ public interface VehicleService {
     List<Vehicle> findAllMotorcycles();
     List<Vehicle> findAllRVs();
     List<Vehicle> findAllCars();
+
+    int vehicleCount();
     Vehicle findById(String id);
 }

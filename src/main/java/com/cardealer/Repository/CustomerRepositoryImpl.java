@@ -20,27 +20,27 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     @Override
     public int save(Customer customer) {
         return jdbcTemplate.update(
-                "insert into customer (fName, lName,address,phoneNumber) values(?,?,?,?)",
+                "insert into CUSTOMER (fName, lName,address,phoneNumber) values(?,?,?,?)",
                 customer.getfName(), customer.getlName(),customer.getAddress(),customer.getPhoneNumber());
     }
 
     @Override
     public int update(Customer customer) {
         return jdbcTemplate.update(
-                "update customer set fName = ? set lName = ? set address = ? set phoneNumber = ? where customerId = ?",
+                "update CUSTOMER set fName = ? set lName = ? set address = ? set phoneNumber = ? where customerId = ?",
                 customer.getfName(), customer.getlName(),customer.getAddress(),customer.getPhoneNumber(), customer.getCustomerId());
     }
 
     @Override
     public int deleteById(int id) {
         return jdbcTemplate.update(
-                "delete from customer where customerId = ?",
+                "delete from CUSTOMER where customerId = ?",
                 id);
     }
     @Override
     public List<Customer> findAll() {
         return jdbcTemplate.query(
-                "select * from customer",
+                "select * from CUSTOMER",
                 (rs, rowNum) ->
                         new Customer(
                                 rs.getInt("customerId"),
