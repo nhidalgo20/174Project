@@ -52,7 +52,7 @@ export default function InputAdornments() {
           id="outlined-start-adornment"
           sx={{ m: 1, width: '40ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
         />
         <TextField
@@ -60,7 +60,7 @@ export default function InputAdornments() {
           id="outlined-start-adornment"
           sx={{ m: 1, width: '40ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
         />
         <TextField
@@ -68,7 +68,7 @@ export default function InputAdornments() {
           id="outlined-start-adornment"
           sx={{ m: 1, width: '25ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
         />
         <TextField
@@ -76,7 +76,7 @@ export default function InputAdornments() {
           id="outlined-start-adornment"
           sx={{ m: 1, width: '25ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
         />
         <TextField
@@ -84,7 +84,7 @@ export default function InputAdornments() {
           id="outlined-start-adornment"
           sx={{ m: 1, width: '25ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+            startAdornment: <InputAdornment position="start"></InputAdornment>,
           }}
         />
       </div>
