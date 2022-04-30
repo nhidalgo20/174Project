@@ -65,7 +65,7 @@ export default function SearchAppBar() {
             sx={{ mr: 2 }}
           >
             <ButtonGroup disableElevation variant="contained">
-            <Button href='/ starr'>Home</Button>
+            <Button href='/'>Home</Button>
             <Button href='/BuyPage'>Buy</Button>
             <Button href='/SellPage'>Sell</Button>
             </ButtonGroup>
