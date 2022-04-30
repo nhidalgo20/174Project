@@ -28,19 +28,19 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     public int save(Vehicle vehicle) {
         if (vehicle.getVehicleType() == vehicleTypes.Truck.toString()) {
             return jdbcTemplate.update(
-                    "insert into vehicle (VIN, price,make, model, body,color,vehicleType,towCapacity,motorcycleType,waterCapacity) values(?,?,?,?,?,?,?,?,?,?)",
+                    "insert into VEHICLE (VIN, price,make, model, body,color,vehicleType,towCapacity,motorcycleType,waterCapacity) values(?,?,?,?,?,?,?,?,?,?)",
                     vehicle.getVehicleVIN(), vehicle.getPrice(), vehicle.getMake(), vehicle.getModel(), vehicle.getBody(), vehicle.getColor(), vehicle.getVehicleType(), vehicle.getTowCapacity(), null, null);
         } else if (vehicle.getVehicleType() == vehicleTypes.MotorCycle.toString()) {
             return jdbcTemplate.update(
-                    "insert into vehicle (VIN, price,make, model, body,color,vehicleType,towCapacity,motorcycleType,waterCapacity) values(?,?,?,?,?,?,?,?,?,?)",
+                    "insert into VEHICLE (VIN, price,make, model, body,color,vehicleType,towCapacity,motorcycleType,waterCapacity) values(?,?,?,?,?,?,?,?,?,?)",
                     vehicle.getVehicleVIN(), vehicle.getPrice(), vehicle.getMake(), vehicle.getModel(), vehicle.getBody(), vehicle.getColor(), vehicle.getVehicleType(), null, vehicle.getMotorcycleType(), null);
         } else if (vehicle.getVehicleType() == vehicleTypes.RV.toString()) {
             return jdbcTemplate.update(
-                    "insert into vehicle (VIN, price,make, model, body,color,vehicleType,towCapacity,motorcycleType,waterCapacity) values(?,?,?,?,?,?,?,?,?,?)",
+                    "insert into VEHICLE (VIN, price,make, model, body,color,vehicleType,towCapacity,motorcycleType,waterCapacity) values(?,?,?,?,?,?,?,?,?,?)",
                     vehicle.getVehicleVIN(), vehicle.getPrice(), vehicle.getMake(), vehicle.getModel(), vehicle.getBody(), vehicle.getColor(), vehicle.getVehicleType(), null, null, vehicle.getWaterCapacity());
         } else {
             return jdbcTemplate.update(
-                    "insert into vehicle (VIN, price,make, model, body,color,vehicleType,towCapacity,motorcycleType,waterCapacity) values(?,?,?,?,?,?,?,?,?,?)",
+                    "insert into VEHICLE (VIN, price,make, model, body,color,vehicleType,towCapacity,motorcycleType,waterCapacity) values(?,?,?,?,?,?,?,?,?,?)",
                     vehicle.getVehicleVIN(), vehicle.getPrice(), vehicle.getMake(), vehicle.getModel(), vehicle.getBody(), vehicle.getColor(), vehicle.getVehicleType(), null, null, null);
         }
     }
@@ -48,7 +48,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     @Override
     public int update(Vehicle vehicle) {
         return jdbcTemplate.update(
-                "update vehicle set price = ? set make = ? set model = ? set body = ? set color = ? set vehicleType = ? set towCapacity = ? set motorcycleType = ? set waterCapacity = ? where VIN = ? ",
+                "update VEHICLE set price = ? set make = ? set model = ? set body = ? set color = ? set vehicleType = ? set towCapacity = ? set motorcycleType = ? set waterCapacity = ? where VIN = ? ",
                 vehicle.getPrice(), vehicle.getMake(), vehicle.getModel(), vehicle.getBody(), vehicle.getColor(), vehicle.getVehicleType(), vehicle.getTowCapacity(), vehicle.getMotorcycleType(), vehicle.getWaterCapacity(), vehicle.getVehicleVIN());
     }
 
@@ -56,14 +56,14 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     @Override
     public int deleteById(String id) {
         return jdbcTemplate.update(
-                "delete from vehicle where VIN = ?",
+                "delete from VEHICLE where VIN = ?",
                 id);
     }
 
     @Override
     public List<Vehicle> findAll() {
         return jdbcTemplate.query(
-                "select * from vehicle",
+                "select * from VEHICLE",
                 (rs, rowNum) ->
                         new Vehicle(
                                 rs.getString("VIN"),
@@ -82,7 +82,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
 
     public List<Vehicle> findAllTrucks() {
         return jdbcTemplate.query(
-                "select * from vehicle WHERE vehicleType = 'Truck'",
+                "select * from VEHICLE WHERE vehicleType = 'Truck'",
                 (rs, rowNum) ->
                         new Vehicle(
                                 rs.getString("VIN"),
@@ -102,7 +102,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     @Override
     public List<Vehicle> findAllMotorcycles() {
         return jdbcTemplate.query(
-                "select * from vehicle WHERE vehicleType ='MotorCycle' ",
+                "select * from VEHICLE WHERE vehicleType ='MotorCycle' ",
                 (rs, rowNum) ->
                         new Vehicle(
                                 rs.getString("VIN"),
@@ -121,7 +121,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
 
     public List<Vehicle> findAllRVs() {
         return jdbcTemplate.query(
-                "select * from vehicle WHERE vehicleType = 'RV' ",
+                "select * from VEHICLE WHERE vehicleType = 'RV' ",
                 (rs, rowNum) ->
                         new Vehicle(
                                 rs.getString("VIN"),
@@ -140,7 +140,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
 
     public List<Vehicle> findAllCars() {
         return jdbcTemplate.query(
-                "select * from vehicle WHERE vehicleType ='CAR' ",
+                "select * from VEHICLE WHERE vehicleType ='CAR' ",
                 (rs, rowNum) ->
                         new Vehicle(
                                 rs.getString("VIN"),
@@ -161,5 +161,9 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     public Vehicle findById(String id) {
         return jdbcTemplate.queryForObject("select * from VEHICLE where VIN = ?",
                 new BeanPropertyRowMapper<Vehicle>(Vehicle.class), id);
+    }
+
+    public int vehicleCount() {
+        return jdbcTemplate.queryForObject("select count(*) from VEHICLE",Integer.class);
     }
 }

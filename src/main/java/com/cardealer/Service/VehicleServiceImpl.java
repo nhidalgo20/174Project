@@ -52,4 +52,9 @@ public class VehicleServiceImpl implements com.cardealer.Service.VehicleService 
 		return vehicleRepository.findById(id);
 	}
 
+	public int vehicleCount() {
+		return vehicleRepository.vehicleCount();
+	}
+
+
 }
