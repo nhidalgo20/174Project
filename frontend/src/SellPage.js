@@ -1,17 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Input from '@mui/material/Input';
-import FilledInput from '@mui/material/FilledInput';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Container, Paper } from '@mui/material';
+import { Container, Paper, Button } from '@mui/material';
 
 export default function InputAdornments() {
   const [values, setValues] = React.useState({
@@ -19,74 +10,74 @@ export default function InputAdornments() {
     password: '',
     weight: '',
     weightRange: '',
-    showPassword: false,
   });
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
 
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
+  const handleClick=(e)=>{};
   return (
       <p>
           <p>
-          <div>&nbsp;</div>
-        <div>&nbsp;</div>
-
       <Container>
+       <h3>SELL YOUR VEHICLE</h3>
        <Paper> 
     <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <div>
-        <TextField
-          label="Vehicle Name"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: '40ch' }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
-          }}
+        <TextField id="outlined-basic" label="Vehicle Identification Number" variant="outlined" fullWidth 
+       // value={VIN}
+       // onChange={(e)=>setName(e.target.value)}
         />
-        <TextField
-          label="Vehicle Type"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: '40ch' }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
-          }}
+        &nbsp;
+        <TextField id="outlined-basic" label="Price" variant="outlined" fullWidth
+       // value={price}
+        //onChange={(e)=>setAddress(e.target.value)}
         />
-        <TextField
-          label="VIN"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: '25ch' }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
-          }}
+        &nbsp;
+        <TextField id="outlined-basic" label="Make " variant="outlined" fullWidth
+        //value={make}
+       // onChange={(e)=>setAddress(e.target.value)}
         />
-        <TextField
-          label="Model Year"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: '25ch' }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
-          }}
+        &nbsp;
+        <TextField id="outlined-basic" label="Model " variant="outlined" fullWidth
+       // value={model}
+       // onChange={(e)=>setAddress(e.target.value)}
         />
-        <TextField
-          label="With normal TextField"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: '25ch' }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start"></InputAdornment>,
-          }}
+        &nbsp;
+        <TextField id="outlined-basic" label="Body " variant="outlined" fullWidth
+       // value={body}
+       // onChange={(e)=>setAddress(e.target.value)}
         />
+        &nbsp;
+        <TextField id="outlined-basic" label="Color " variant="outlined" fullWidth
+       // value={color}
+       // onChange={(e)=>setAddress(e.target.value)}
+        />
+        &nbsp;
+        <TextField id="outlined-basic" label="Vehicle Type " variant="outlined" fullWidth
+        //value={vehicleType}
+        //onChange={(e)=>setAddress(e.target.value)}
+        />
+        &nbsp;
+        <TextField id="outlined-basic" label="Tow Capacity " variant="outlined" fullWidth
+       // value={towCapacity}
+        //onChange={(e)=>setAddress(e.target.value)}
+        />
+        &nbsp;
+        <TextField id="outlined-basic" label="Motorcylce Type " variant="outlined" fullWidth
+       // value={motorCycleType}
+       // onChange={(e)=>setAddress(e.target.value)}
+        />
+        &nbsp;
+        <TextField id="outlined-basic" label="Water Capacity " variant="outlined" fullWidth
+       // value={waterCapacity}
+        //onChange={(e)=>setAddress(e.target.value)}
+        />
+        &nbsp;
+        &nbsp;
+        <div>
+        <Button variant="contained" color="secondary" onClick={handleClick}> Submit </Button>
+        &nbsp;
+        &nbsp;
+        </div>
       </div>
     </Box>
     </Paper>
