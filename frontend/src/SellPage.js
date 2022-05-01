@@ -24,7 +24,7 @@ export default function InputAdornments() {
     e.preventDefault()
     const vehicle={VIN, price, make, model, body, color, vehicleType, towCapacity, motorcycleType, waterCapacity}
     console.log(vehicle)
-    fetch("http://localhost:8080/vehicle",{
+    fetch("https://agile-taiga-94360.herokuapp.com/vehicle",{
        mode:'cors',
        method:"POST",
        headers:{"Content-Type":"application/json"},

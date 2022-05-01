@@ -9,7 +9,7 @@ export default function BuyPage() {
 
   const fetchVehicles = async () => {
     const { data } = await Axios.get(
-      "http://localhost:8080/getAllVehicles"
+      "https://agile-taiga-94360.herokuapp.com/getAllVehicles"
     );
     const vehicles = data;
     setVehicles(vehicles);
@@ -21,8 +21,9 @@ export default function BuyPage() {
     deleteVehicle(vehicleVIN)
 }
 async function deleteVehicle(id) {
-    const response = await fetch(`http://localhost:8080/deleteVehicle/${id}`, {
-      method: "DELETE",
+    const response = await fetch(`https://agile-taiga-94360.herokuapp.com/deleteVehicle/${id}`, {
+      mode:'cors',
+      method: "DELETE"
     });
     return response.json();
   }
