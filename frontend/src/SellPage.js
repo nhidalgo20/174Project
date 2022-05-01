@@ -6,15 +6,34 @@ import InputLabel from '@mui/material/InputLabel';
 import { Container, Paper, Button, Select, MenuItem } from '@mui/material';
 
 export default function InputAdornments() {
-  const [values, setValues] = React.useState({
-    amount: '',
-    password: '',
-    weight: '',
-    weightRange: '',
-  });
+  const vType = ["Car", "Truck", "Motorcycle", "RV"];
+  const [value, setValue] = React.useState("");
+  const [VIN, setVIN] = React.useState("");
+  const [color, setColor] = React.useState("");
+  const [price, setPrice] = React.useState("");
+  const [make, setMake] = React.useState("");
+  const [model, setModel] = React.useState("");
+  const [body, setBody] = React.useState("");
+  const [vehicleType, setVehicleType] = React.useState("");
+  const handleChange = e => setValue(e.target.value)
 
 
-  const handleClick=(e)=>{};
+  const handleClick=(e)=>{
+    e.preventDefault()
+  //   const student={name,address}
+  //   console.log(student)
+  //   fetch("http://localhost:8080/student/add",{
+  //     method:"POST",
+  //     headers:{"Content-Type":"application/json"},
+  //     body:JSON.stringify(student)
+
+  // })
+  .then(()=>{
+    console.log("Vehicle is now up for Sale!!!")
+  })
+}
+
+
   return (
       <p>
           <p>
@@ -24,56 +43,73 @@ export default function InputAdornments() {
     <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <div>
         <TextField id="outlined-basic" label="Vehicle Identification Number" variant="outlined" fullWidth 
-       // value={VIN}
-       // onChange={(e)=>setName(e.target.value)}
+        value={VIN}
+        onChange={(e)=>setVIN(e.target.value)}
         />
         &nbsp;
         <TextField id="outlined-basic" label="Price" variant="outlined" fullWidth
-       // value={price}
-        //onChange={(e)=>setAddress(e.target.value)}
+        value={price}
+        onChange={(e)=>setPrice(e.target.value)}
         />
         &nbsp;
         <TextField id="outlined-basic" label="Make " variant="outlined" fullWidth
-        //value={make}
-       // onChange={(e)=>setAddress(e.target.value)}
+        value={make}
+        onChange={(e)=>setMake(e.target.value)}
         />
         &nbsp;
         <TextField id="outlined-basic" label="Model " variant="outlined" fullWidth
-       // value={model}
-       // onChange={(e)=>setAddress(e.target.value)}
+        value={model}
+        onChange={(e)=>setModel(e.target.value)}
         />
         &nbsp;
         <TextField id="outlined-basic" label="Body " variant="outlined" fullWidth
-       // value={body}
-       // onChange={(e)=>setAddress(e.target.value)}
+        value={body}
+        onChange={(e)=>setBody(e.target.value)}
         />
         &nbsp;
         <TextField id="outlined-basic" label="Color " variant="outlined" fullWidth
-       // value={color}
-       // onChange={(e)=>setAddress(e.target.value)}
+        value={color}
+        onChange={(e)=>setColor(e.target.value)}
         />
         &nbsp;
-        <FormControl sx={{ m: 1, minWidth: 800 }}>
+        {/* <FormControl fullWidth >
         <InputLabel id="demo-simple-select-autowidth-label">Vehicle Type</InputLabel>
         <Select
           // labelId="demo-simple-select-autowidth-label"
           // id="demo-simple-select-autowidth"
           // value={age}
-          // onChange={handleChange}
+          onChange={handleChange}
           // autoWidth
           // label="Age"
         >
-          <MenuItem value="">
+          <MenuItem value="" >
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Car</MenuItem>
-          <MenuItem value={21}>Truck</MenuItem>
-          <MenuItem value={22}>Motor Cycles</MenuItem>
-          <MenuItem value={22}>RV</MenuItem>
+          <MenuItem value={vehicleType}>Car</MenuItem>
+          <MenuItem value={'Truck'}>Truck</MenuItem>
+          <MenuItem value={'Motorcycle'}>Motor Cycles</MenuItem>
+          <MenuItem value={'RV'}>RV</MenuItem>
         </Select>
-      </FormControl>
+      </FormControl> */}
+      &nbsp;
+      &nbsp;
+        <select value ={vehicleType} onChange={e=>setVehicleType(e.target.value)}>
+          <option>Car</option>
+          <option>Truck</option>
+          <option>Motorcycle</option>
+          <option>RV</option>
+        </select>
         &nbsp;
-        <TextField id="outlined-basic" label="Tow Capacity " variant="outlined" fullWidth
+      {vehicleType === vType[1] && <TextField id="outlined-basic" label="Tow Capacity" variant="outlined" fullWidth/> }
+      {vehicleType === vType[2] && <TextField id="outlined-basic" label="Motorcylce Type" variant="outlined" fullWidth/> }
+      {vehicleType === vType[3] && <TextField id="outlined-basic" label="Water Capacity" variant="outlined" fullWidth/> }
+        {
+          //<TextField id="outlined-basic" label="Tow Capacity " variant="outlined" fullWidth
+          // value={towCapacity}
+           //onChange={(e)=>setAddress(e.target.value)}
+           ///>
+        }
+        {/* <TextField id="outlined-basic" label="Tow Capacity " variant="outlined" fullWidth
        // value={towCapacity}
         //onChange={(e)=>setAddress(e.target.value)}
         />
@@ -86,7 +122,7 @@ export default function InputAdornments() {
         <TextField id="outlined-basic" label="Water Capacity " variant="outlined" fullWidth
        // value={waterCapacity}
         //onChange={(e)=>setAddress(e.target.value)}
-        />
+        /> */}
         &nbsp;
         &nbsp;
         <div>
