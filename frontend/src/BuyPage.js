@@ -17,18 +17,15 @@ export default function BuyPage() {
   };
 
   const handleClick=(e)=>{
-    e.preventDefault()
+    e.preventDefault()  
     deleteVehicle(vehicleVIN)
 }
-    function deleteVehicle(id){
-        fetch("localhost:8080/deleteVehicle/"+id,{
-            method: 'DELETE'
-        }).then ((result)=>{
-            result.json().then((resp)=>{
-                console.warn(resp)
-            })
-        })
-    }
+async function deleteVehicle(id) {
+    const response = await fetch(`http://localhost:8080/deleteVehicle/${id}`, {
+      method: "DELETE",
+    });
+    return response.json();
+  }
 
 
   useEffect(() => {
