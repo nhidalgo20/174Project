@@ -24,7 +24,7 @@ public class VehicleController {
     }
     // end::get-aggregate-root[]
 
-    @PostMapping("/vehicles")
+    @PostMapping("/vehicle")
     int newEmployee(@RequestBody Vehicle newVehicle) {
         return vehicleService.save(newVehicle);
     }
