@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class VehicleController {
     @Autowired
     private final VehicleService vehicleService;
@@ -17,7 +18,7 @@ public class VehicleController {
         this.vehicleService = vehicleService;
     }
 
-    @GetMapping("/vehicles")
+    @GetMapping("/getAllVehicles")
     List<Vehicle> all() {
         return vehicleService.findAll();
     }
@@ -32,7 +33,6 @@ public class VehicleController {
 
     @GetMapping("/vehicles/{id}")
     Vehicle oneVehicle(@PathVariable String id) {
-
         return vehicleService.findById(id);
     }
 
@@ -56,8 +56,8 @@ public class VehicleController {
 //        });
 //    }
 
-    @DeleteMapping("/vehicles/{id}")
-    void deleteEmployee(@PathVariable String id) {
+    @DeleteMapping("/deleteVehicle/{id}")
+    void deleteVehicle(@PathVariable String id) {
         vehicleService.deleteById(id);
     }
 }

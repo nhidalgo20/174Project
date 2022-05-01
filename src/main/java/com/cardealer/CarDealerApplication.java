@@ -47,6 +47,7 @@ public class CarDealerApplication implements CommandLineRunner{
 				vehicleService.save((Vehicle) vehicle);
 			});
 			System.out.println("[Save] vehicle");
+			vehicleService.deleteById("19UUA9E58AA800601");
 		}
 		else{
 			System.out.println("Seeded Already");
