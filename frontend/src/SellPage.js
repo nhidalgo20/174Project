@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import { Container, Paper, Button, Select, MenuItem } from '@mui/material';
+import { Container, Paper, Button, Select, MenuItem, CardHeader } from '@mui/material';
 
 export default function InputAdornments() {
   const vType = ["Car", "Truck", "Motorcycle", "RV"];
@@ -72,34 +72,34 @@ export default function InputAdornments() {
         onChange={(e)=>setColor(e.target.value)}
         />
         &nbsp;
-        {/* <FormControl fullWidth >
+        <FormControl fullWidth >
         <InputLabel id="demo-simple-select-autowidth-label">Vehicle Type</InputLabel>
-        <Select
+        <Select value ={vehicleType} onChange={e=>setVehicleType(e.target.value)}
           // labelId="demo-simple-select-autowidth-label"
           // id="demo-simple-select-autowidth"
           // value={age}
-          onChange={handleChange}
+         // onChange={handleChange}
           // autoWidth
           // label="Age"
         >
           <MenuItem value="" >
             <em>None</em>
           </MenuItem>
-          <MenuItem value={vehicleType}>Car</MenuItem>
+          <MenuItem value={'Car'}>Car</MenuItem>
           <MenuItem value={'Truck'}>Truck</MenuItem>
-          <MenuItem value={'Motorcycle'}>Motor Cycles</MenuItem>
+          <MenuItem value={'Motorcycle'}>Motorcycle</MenuItem>
           <MenuItem value={'RV'}>RV</MenuItem>
         </Select>
-      </FormControl> */}
+      </FormControl>
       &nbsp;
       &nbsp;
-        <select value ={vehicleType} onChange={e=>setVehicleType(e.target.value)}>
+        {/* <select value ={vehicleType} onChange={e=>setVehicleType(e.target.value)}>
           <option>Car</option>
           <option>Truck</option>
           <option>Motorcycle</option>
           <option>RV</option>
         </select>
-        &nbsp;
+        &nbsp; */}
       {vehicleType === vType[1] && <TextField id="outlined-basic" label="Tow Capacity" variant="outlined" fullWidth/> }
       {vehicleType === vType[2] && <TextField id="outlined-basic" label="Motorcylce Type" variant="outlined" fullWidth/> }
       {vehicleType === vType[3] && <TextField id="outlined-basic" label="Water Capacity" variant="outlined" fullWidth/> }
